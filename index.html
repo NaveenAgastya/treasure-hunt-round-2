@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Correct order -->
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+<script src="config.js"></script> <!-- This must come after Firebase SDKs -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Puzzle Game Challenge</h1>
+        </header>
+
+        <div class="login-container">
+            <div class="login-tabs">
+                <button class="tab-btn active" data-tab="user-login">Team Login</button>
+                <button class="tab-btn" data-tab="admin-login">Admin Login</button>
+            </div>
+
+            <div class="tab-content active" id="user-login">
+                <h2>Team Login</h2>
+                <form id="teamLoginForm">
+                    <div class="form-group">
+                        <label for="teamLoginName">Team Name:</label>
+                        <input type="text" id="teamLoginName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="teamPassword">Password:</label>
+                        <input type="password" id="teamPassword" required>
+                    </div>
+                    <button type="submit" class="btn primary">Login</button>
+                </form>
+            </div>
+
+            <div class="tab-content" id="admin-login">
+                <h2>Admin Login</h2>
+                <form id="adminLoginForm">
+                    <div class="form-group">
+                        <label for="adminEmail">Email:</label>
+                        <input type="email" id="adminEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPassword">Password:</label>
+                        <input type="password" id="adminPassword" required>
+                    </div>
+                    <button type="submit" class="btn primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

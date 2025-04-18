@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Correct order -->
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+<script src="config.js"></script> <!-- This must come after Firebase SDKs -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="team-info">
+                <span id="teamName">Team: </span>
+                <span id="teamScore">Score: 0</span>
+            </div>
+            <div class="timer" id="timeDisplay">00:00</div>
+            <button id="logoutBtn" class="btn secondary">Logout</button>
+        </header>
+
+        <div class="puzzle-container">
+            <div id="puzzle-image" class="puzzle-image"></div>
+        </div>
+
+        <div class="controls">
+            <button id="startGame" class="btn primary">Start Game</button>
+            <button id="resetPuzzle" class="btn secondary">Reset Puzzle</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

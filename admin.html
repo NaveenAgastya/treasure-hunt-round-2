@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Correct order -->
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+<script src="config.js"></script> <!-- This must come after Firebase SDKs -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Admin Panel</h1>
+            <button id="logoutBtn" class="btn secondary">Logout</button>
+        </header>
+
+        <div class="admin-panel">
+            <h2>Add New Team</h2>
+            <form id="teamForm">
+                <div class="form-group">
+                    <label for="teamName">Team Name:</label>
+                    <input type="text" id="teamName" required>
+                </div>
+                <div class="form-group">
+                    <label for="teamPassword">Team Password:</label>
+                    <input type="text" id="teamPassword" required minlength="4">
+                    <small>Minimum 4 characters</small>
+                </div>
+                <div class="form-group">
+                    <label for="puzzleImage">Puzzle Image:</label>
+                    <input type="file" id="puzzleImage" accept="image/*" required>
+                    <img id="imagePreview" style="display: none; max-width: 200px; margin-top: 10px;">
+                </div>
+                <button type="submit" class="btn primary">Add Team</button>
+            </form>
+
+            <h2>Team List</h2>
+            <div class="team-list" id="teamList">
+                <!-- Teams will be listed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
