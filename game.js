@@ -496,6 +496,45 @@ class PuzzleGame {
     }
 }
 
+
+// Game.js integration:
+// Add this function to record submissions from the game interface
+
+ 
+// In game.js
+async function submitSolution(solution) {
+    const teamId = localStorage.getItem('teamId');
+    const problemId = currentProblemId; // Define this in your game logic
+    const startTime = puzzleStartTime; // Define this when user starts the puzzle
+    const endTime = new Date();
+    const timeElapsed = endTime - startTime; // Time in milliseconds
+    
+    // Verify solution (your logic here)
+    const isCorrect = verifySolution(solution);
+    
+    // Get team name
+    const teamDoc = await db.collection('teams').doc(teamId).get();
+    const teamName = teamDoc.exists ? teamDoc.data().name : 'Unknown Team';
+    
+    // Record the submission
+    await SubmissionTracker.recordSubmission(
+        teamId,
+        teamName,
+        problemId,
+        solution,
+        isCorrect,
+        timeElapsed,
+        1 // Difficulty level
+    );
+    
+    // Handle result display to the user
+    if (isCorrect) {
+        showSuccessMessage();
+    } else {
+        showErrorMessage();
+    }
+}
+
 // Initialize the game when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new PuzzleGame();
